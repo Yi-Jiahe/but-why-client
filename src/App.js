@@ -91,7 +91,7 @@ function App() {
           <div id='chat'>
             {messageHistory.map((e, i) => {
               return (
-                <div key={i} className='chat-message' style={{ backgroundColor: `${(e.superchatTier === undefined || e.superchatTier === 0) ? 'white' : superchatColours[e.superchatTier - 1]}`}}>
+                <div key={i} className='chat-message' style={{ backgroundColor: `${(e.superchatTier === undefined || e.superchatTier === 0) ? 'white' : superchatColours[e.superchatTier - 1]}` }}>
                   <p>{e.message}</p>
                 </div>
               );
@@ -111,7 +111,7 @@ function App() {
               </datalist>
             </div>}
             <div style={{ width: '100%', display: 'flex' }}>
-              <input type='text' value={messageText} placeholder='Chat...' onChange={(e) => setMessageText(e.target.value)} style={{ flexGrow: '1', borderRadius: '20px', padding: '10px 20px'}} />
+              <input type='text' value={messageText} placeholder='Chat...' onChange={(e) => setMessageText(e.target.value)} style={{ flexGrow: '1', borderRadius: '20px', padding: '10px 20px' }} />
               {messageText === "" ?
                 <button className='icon-button' onClick={() => {
                   if (isSuperchat) {
@@ -138,11 +138,13 @@ function App() {
         <div>
           <h1>NPC Kronii</h1>
           <p>A multiplayer chat room based on Kronii's <a href='https://www.youtube.com/watch?v=IgLGcD9-5SI'>【NPC Stream】Yum Yum #shorts</a></p>
+          <p>If you have any suggestions or would like to report an issue, feel free to contact me on <a href='https://twitter.com/Activepaste1' target="_blank" rel="noreferrer">Twitter</a> or <a href='https://discordapp.com/users/196269893698453504' target="_blank" rel="noreferrer">Discord</a>.</p>
           <br />
           <p>Subscribe to <a href='https://www.youtube.com/@OuroKronii'>Ouro Kronii Ch. hololive-EN</a></p>
           <br />
           <h3>Image Credits</h3>
           <p>Kronii image from <a href='https://hololive.hololivepro.com/en/talents/ouro-kronii/'>hololive.holopro.com</a></p>
+          <br />
           <h3>Icon credits</h3>
           <p><img src={info} alt='info' className='s20x20' /><a href="https://www.flaticon.com/free-icons/info" title="info icons">Info icons created by Freepik - Flaticon</a></p>
           <p><img src={send} alt='send' className='s20x20' /><a href="https://www.flaticon.com/free-icons/send" title="send icons">Send icons created by Becris - Flaticon</a></p>
