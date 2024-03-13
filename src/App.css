@@ -31,9 +31,7 @@
 
 #kronii {
   position: absolute;
-  top: -50%;
-  left: -125%;
-  height: 300%;
+  height: 100%;
   object-fit: cover;
 }
 

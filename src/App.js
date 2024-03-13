@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import useWebSocket, { ReadyState } from 'react-use-websocket';
 import './App.css';
-import kronii from './Ouro-Kronii_pr-img_01.png';
+import kronii from './Kronii_cropped.png';
 import Modal from './Modal';
 import info from './icons/info.png';
 import chat from './icons/chat.png';
