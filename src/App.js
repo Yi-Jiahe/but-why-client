@@ -91,8 +91,8 @@ function App() {
           <div id='chat'>
             {messageHistory.map((e, i) => {
               return (
-                <div key={i} style={{ backgroundColor: `${(e.superchatTier === undefined || e.superchatTier === 0) ? 'white' : superchatColours[e.superchatTier - 1]}`, width: 'fit-content', maxWidth: '100%', wordBreak: 'break-all', marginBottom: '2px', borderRadius: '5px' }}>
-                  <p style={{ margin: '1px 8px 0.5px' }}>{e.message}</p>
+                <div key={i} className='chat-message' style={{ backgroundColor: `${(e.superchatTier === undefined || e.superchatTier === 0) ? 'white' : superchatColours[e.superchatTier - 1]}`}}>
+                  <p>{e.message}</p>
                 </div>
               );
             })}

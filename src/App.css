@@ -1,4 +1,8 @@
-/* QuickReset */ * { margin: 0; box-sizing: border-box; }
+/* QuickReset */
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
 
 .App {
   position: relative;
@@ -51,6 +55,16 @@
   height: 30%;
   overflow-y: auto;
   width: 50%;
+  padding: 10px 20px;
+}
+
+.chat-message {
+  width: fit-content;
+  max-width: 100%;
+  word-break: break-all;
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  border-radius: 10px;
 }
 
 #chat-form {
@@ -76,9 +90,17 @@
 }
 
 @keyframes fade-out {
-  0% {opacity: 1;}
-  80% {opacity: 0.8;}
-  100% {opacity: 0;}
+  0% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 .icon-button {
