@@ -111,7 +111,7 @@ function App() {
               </datalist>
             </div>}
             <div style={{ width: '100%', display: 'flex' }}>
-              <input type='text' value={messageText} placeholder='Chat...' onChange={(e) => setMessageText(e.target.value)} style={{ flexGrow: '1', borderRadius: '20px' }} />
+              <input type='text' value={messageText} placeholder='Chat...' onChange={(e) => setMessageText(e.target.value)} style={{ flexGrow: '1', borderRadius: '20px', padding: '10px 20px'}} />
               {messageText === "" ?
                 <button className='icon-button' onClick={() => {
                   if (isSuperchat) {
