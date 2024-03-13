@@ -141,6 +141,8 @@ function App() {
           <br />
           <p>Subscribe to <a href='https://www.youtube.com/@OuroKronii'>Ouro Kronii Ch. hololive-EN</a></p>
           <br />
+          <h3>Image Credits</h3>
+          <p>Kronii image from <a href='https://hololive.hololivepro.com/en/talents/ouro-kronii/'>hololive.holopro.com</a></p>
           <h3>Icon credits</h3>
           <p><img src={info} alt='info' className='s20x20' /><a href="https://www.flaticon.com/free-icons/info" title="info icons">Info icons created by Freepik - Flaticon</a></p>
           <p><img src={send} alt='send' className='s20x20' /><a href="https://www.flaticon.com/free-icons/send" title="send icons">Send icons created by Becris - Flaticon</a></p>
