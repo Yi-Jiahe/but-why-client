@@ -131,7 +131,11 @@ function App() {
             </div>
           </div>
         </div>
-        <button id='about-button' className='icon-button' onClick={() => setShowAbout(true)}><img src={info} alt='info' className='s20x20' /></button>
+        <button id='about-button' className='icon-button' onClick={() => setShowAbout(true)}>
+          <div className='s20x20' style={{ backgroundColor: 'white', borderRadius: '10px' }}>
+            <img src={info} alt='info' className='s20x20' />
+            </div>
+        </button>
       </div>
 
       {showAbout && <Modal closeModal={() => { setShowAbout(false) }}>
