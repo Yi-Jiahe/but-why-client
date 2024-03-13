@@ -1,11 +1,21 @@
 import { useEffect, useState } from 'react';
 import useWebSocket, { ReadyState } from 'react-use-websocket';
 import './App.css';
-import kronii from './Kronii_cropped.png';
 import Modal from './Modal';
 import info from './icons/info.png';
 import chat from './icons/chat.png';
 import send from './icons/send.png';
+
+const cloudfrontUrl = 'https://dayrhgvj5w0e9.cloudfront.net';
+
+const soundClips = [
+  "but-why.mp3",
+  "i-know-i-love-myself-too.mp3",
+  "gaslight-gatekeep-girlboss.mp3",
+  "ara-ara.mp3",
+  "youve-been-a-very-good-kronie.mp3",
+  "would-you-bark-for-me-little-one.mp3",
+].map(e => new Audio(`${cloudfrontUrl}/${e}`));
 
 const superchatColours = [
   // Blue
@@ -58,8 +68,14 @@ function App() {
     const message = JSON.parse(lastMessage.data);
 
     if (message.voiceLine) {
-      setCurrentVoiceLine(NPCmessages[message.voiceLine - 1]);
-      setTimeout(() => setCurrentVoiceLine(""), 3000);
+      const i = message.voiceLine - 1;
+      soundClips[i].play()
+      .then(() => {
+        setCurrentVoiceLine(NPCmessages[i]);
+        setTimeout(() => setCurrentVoiceLine(""), 3000);
+      })
+      .catch(err => console.log(err));
+
       return
     }
 
@@ -82,7 +98,7 @@ function App() {
   return (
     <div className="App">
       <div id='video'>
-        <img id='kronii' src={kronii} alt='kronii' />
+        <img id='kronii' src={`${cloudfrontUrl}/Kronii_cropped.png`} alt='kronii' />
         {/* <p>{connectionStatus}</p> */}
         <div id="voiceline-text" className={currentVoiceLine !== "" && 'fade-out'}>
           {currentVoiceLine}

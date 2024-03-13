@@ -10,7 +10,7 @@
 }
 
 #video {
-  background-image: url("background.jpg");
+  background-color: #2C3267;
   overflow: hidden;
   position: absolute;
   margin: auto;
