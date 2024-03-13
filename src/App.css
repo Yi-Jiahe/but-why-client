@@ -19,6 +19,12 @@
   aspect-ratio: 9 / 16;
 }
 
+#about-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 #kronii {
   position: absolute;
   top: -50%;
@@ -52,6 +58,10 @@
   width: 100%;
 }
 
+#superchat-input {
+  padding: 20px
+}
+
 #voiceline-text {
   width: 100%;
   position: absolute;
@@ -69,4 +79,15 @@
   0% {opacity: 1;}
   80% {opacity: 0.8;}
   100% {opacity: 0;}
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  padding: 5px 5px;
+}
+
+.s20x20 {
+  width: 20px;
+  height: 20px;
 }

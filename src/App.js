@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react';
 import useWebSocket, { ReadyState } from 'react-use-websocket';
 import './App.css';
 import kronii from './Ouro-Kronii_pr-img_01.png';
+import Modal from './Modal';
+import info from './icons/info.png';
+import chat from './icons/chat.png';
+import send from './icons/send.png';
 
 const superchatColours = [
   // Blue
@@ -43,14 +47,13 @@ function App() {
     shouldReconnect: (closeEvent) => true,
   });
   const [isSuperchat, setIsSuperchat] = useState(false);
-  const [superchatTier, setSuperchatTier] = useState(1);
+  const [superchatTier, setSuperchatTier] = useState(0);
   const [messageText, setMessageText] = useState("");
   const [currentVoiceLine, setCurrentVoiceLine] = useState("");
+  const [showAbout, setShowAbout] = useState(false);
 
   useEffect(() => {
     if (lastMessage === null) { return; }
-
-    console.log("Message received: ", lastMessage);
 
     const message = JSON.parse(lastMessage.data);
 
@@ -94,30 +97,48 @@ function App() {
               );
             })}
           </div>
-          <div id='chat-form'>
-            {isSuperchat && <div id='superchat-input' style={{ backgroundColor: `${superchatColours[superchatTier - 1]}` }}>
+          <div id='chat-form' style={{ backgroundColor: `${superchatTier === 0 ? 'white' : superchatColours[superchatTier - 1]}`}}>
+            {isSuperchat && <div id='superchat-input'>
               <p>{NPCmessages[superchatTier - 1]}</p>
-              <input type='range' min={1} max={6} value={superchatTier} onChange={(e) => { setSuperchatTier(parseInt(e.target.value)) }} style={{ width: '100%' }} />
+              <input type='range' min={1} max={6} value={superchatTier} onChange={(e) => { setSuperchatTier(parseInt(e.target.value)) }} style={{ width: '100%', marginTop: '25px' }} />
             </div>}
             <div style={{ width: '100%', display: 'flex' }}>
-              <input type='text' value={messageText} onChange={(e) => setMessageText(e.target.value)} style={{ flexGrow: '1' }} />
+              <input type='text' value={messageText} placeholder='Chat...' onChange={(e) => setMessageText(e.target.value)} style={{ flexGrow: '1', borderRadius: '20px' }} />
               {messageText === "" ?
-                <button onClick={() => {
+                <button className='icon-button' onClick={() => {
+                  if (isSuperchat) {
+                    setSuperchatTier(0)
+                  } else {
+                    setSuperchatTier(1)
+                  }
                   setIsSuperchat(!isSuperchat)
-                }}>Superchat</button> :
-                <button onClick={() => {
+                }}><img src={chat} alt='superchat' className='s20x20' /></button> :
+                <button className='icon-button' onClick={() => {
                   sendMessage(JSON.stringify(isSuperchat ?
                     { superchatTier: superchatTier, message: messageText } :
                     { message: messageText }));
                   setMessageText("");
-                }}>Send</button>
+                }}><img src={send} alt='send' className='s20x20' /></button>
               }
             </div>
           </div>
         </div>
+        <button id='about-button' className='icon-button' onClick={() => setShowAbout(true)}><img src={info} alt='info' className='s20x20' /></button>
       </div>
 
-
+      {showAbout && <Modal closeModal={() => { setShowAbout(false) }}>
+        <div>
+          <h1>NPC Kronii</h1>
+          <p>A multiplayer chat room based on Kronii's <a href='https://www.youtube.com/watch?v=IgLGcD9-5SI'>【NPC Stream】Yum Yum #shorts</a></p>
+          <br />
+          <p>Subscribe to <a href='https://www.youtube.com/@OuroKronii'>Ouro Kronii Ch. hololive-EN</a></p>
+          <br />
+          <h3>Icon credits</h3>
+          <p><img src={info} alt='info' className='s20x20' /><a href="https://www.flaticon.com/free-icons/info" title="info icons">Info icons created by Freepik - Flaticon</a></p>
+          <p><img src={send} alt='send' className='s20x20' /><a href="https://www.flaticon.com/free-icons/send" title="send icons">Send icons created by Becris - Flaticon</a></p>
+          <p><img src={chat} alt='superchat' className='s20x20' /><a href="https://www.flaticon.com/free-icons/communication" title="communication icons">Communication icons created by Vectors Market - Flaticon</a></p>
+        </div>
+      </Modal>}
     </div>
   );
 }
