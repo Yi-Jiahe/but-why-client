@@ -92,15 +92,23 @@ function App() {
             {messageHistory.map((e, i) => {
               return (
                 <div key={i} style={{ backgroundColor: `${(e.superchatTier === undefined || e.superchatTier === 0) ? 'white' : superchatColours[e.superchatTier - 1]}`, width: 'fit-content', maxWidth: '100%', wordBreak: 'break-all', marginBottom: '2px', borderRadius: '5px' }}>
-                  <p style={{margin: '1px 8px 0.5px'}}>{e.message}</p>
+                  <p style={{ margin: '1px 8px 0.5px' }}>{e.message}</p>
                 </div>
               );
             })}
           </div>
-          <div id='chat-form' style={{ backgroundColor: `${superchatTier === 0 ? 'white' : superchatColours[superchatTier - 1]}`}}>
+          <div id='chat-form' style={{ backgroundColor: `${superchatTier === 0 ? 'white' : superchatColours[superchatTier - 1]}` }}>
             {isSuperchat && <div id='superchat-input'>
               <p>{NPCmessages[superchatTier - 1]}</p>
-              <input type='range' min={1} max={6} value={superchatTier} onChange={(e) => { setSuperchatTier(parseInt(e.target.value)) }} style={{ width: '100%', marginTop: '25px' }} />
+              <input type='range' min={1} max={6} value={superchatTier} onChange={(e) => { setSuperchatTier(parseInt(e.target.value)) }} style={{ width: '100%', marginTop: '25px' }} list='markers' />
+              <datalist id="markers">
+                <option value="1"></option>
+                <option value="2"></option>
+                <option value="3"></option>
+                <option value="4"></option>
+                <option value="5"></option>
+                <option value="6"></option>
+              </datalist>
             </div>}
             <div style={{ width: '100%', display: 'flex' }}>
               <input type='text' value={messageText} placeholder='Chat...' onChange={(e) => setMessageText(e.target.value)} style={{ flexGrow: '1', borderRadius: '20px' }} />
