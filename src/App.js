@@ -35,7 +35,7 @@ const NPCmessages = [
 
 function App() {
   // eslint-disable-next-line no-unused-vars
-  const [socketUrl, _setSocketUrl] = useState(process.env.NODE_ENV === 'development' ? 'ws://localhost:8080' : process.env.REACT_APP_WEB_SOCKET_SERVER);
+  const [socketUrl, _setSocketUrl] = useState(process.env.NODE_ENV === 'development' ? 'ws://localhost:8080' : process.env.REACT_APP_WEBSOCKET_SERVER);
   const [messageHistory, setMessageHistory] = useState([]);
   const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl, {
     onOpen: () => console.log('opened'),
