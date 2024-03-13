@@ -66,6 +66,8 @@ function App() {
 
   }, [lastMessage]);
 
+  // TODO: Use this to determine what to render
+  // eslint-disable-next-line no-unused-vars
   const connectionStatus = {
     [ReadyState.CONNECTING]: 'Connecting',
     [ReadyState.OPEN]: 'Open',
@@ -77,7 +79,7 @@ function App() {
   return (
     <div className="App">
       <div id='video'>
-        <img id='kronii' src={kronii} />
+        <img id='kronii' src={kronii} alt='kronii' />
         {/* <p>{connectionStatus}</p> */}
         <div id="voiceline-text" className={currentVoiceLine !== "" && 'fade-out'}>
           {currentVoiceLine}
