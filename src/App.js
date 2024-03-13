@@ -116,7 +116,7 @@ function App() {
           <div id='chat-form' style={{ backgroundColor: `${superchatTier === 0 ? 'white' : superchatColours[superchatTier - 1]}` }}>
             {isSuperchat && <div id='superchat-input'>
               <p>{NPCmessages[superchatTier - 1]}</p>
-              <input type='range' min={1} max={6} value={superchatTier} onChange={(e) => { setSuperchatTier(parseInt(e.target.value)) }} style={{ width: '100%', marginTop: '25px' }} list='markers' />
+              <input type='range' min={1} max={6} value={superchatTier} onChange={(e) => { setSuperchatTier(parseInt(e.target.value)) }} style={{ width: 'calc(100% - 100px)', padding: '25px', margin: '0px 50px' }} list='markers' />
               <datalist id="markers">
                 <option value="1"></option>
                 <option value="2"></option>
