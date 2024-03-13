@@ -165,13 +165,14 @@ function App() {
       {showAbout && <Modal closeModal={() => { setShowAbout(false) }}>
         <div>
           <h1>NPC Kronii</h1>
-          <p>A multiplayer chat room based on Kronii's <a href='https://www.youtube.com/watch?v=IgLGcD9-5SI'>【NPC Stream】Yum Yum #shorts</a></p>
+          <p>A multiplayer chatroom/soundboard based on Kronii's <a href='https://www.youtube.com/watch?v=IgLGcD9-5SI'>【NPC Stream】Yum Yum #shorts</a></p>
           <p>If you have any suggestions or would like to report an issue, feel free to contact me on <a href='https://twitter.com/Activepaste1' target="_blank" rel="noreferrer">Twitter</a> or <a href='https://discordapp.com/users/196269893698453504' target="_blank" rel="noreferrer">Discord</a>.</p>
           <br />
           <p>Subscribe to <a href='https://www.youtube.com/@OuroKronii'>Ouro Kronii Ch. hololive-EN</a></p>
           <br />
           <h3>Image Credits</h3>
           <p>Kronii image from <a href='https://hololive.hololivepro.com/en/talents/ouro-kronii/'>hololive.holopro.com</a></p>
+          <p>Background based on Kronii's room</p>
           <br />
           <h3>Icon credits</h3>
           <p><img src={info} alt='info' className='s20x20' /><a href="https://www.flaticon.com/free-icons/info" title="info icons">Info icons created by Freepik - Flaticon</a></p>
