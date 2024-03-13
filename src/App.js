@@ -98,6 +98,14 @@ function App() {
   return (
     <div className="App">
       <div id='video'>
+        <svg width='100%' height='100%' viewBox='0 0 1080 1920' style={{position: 'absolute'}}>
+        <line x1="0" y1="70" x2="1080" y2="20" stroke='#9F9B55' strokeWidth='5' />
+          <line x1="0" y1="100" x2="1080" y2="50" stroke='#9F9B55' strokeWidth='25' />
+          <line x1="0" y1="150" x2="1080" y2="100" stroke='#9F9B55' strokeWidth='10' />
+          <line x1="0" y1="170" x2="1080" y2="120" stroke='#9F9B55' strokeWidth='10' />
+          <line x1="0" y1="350" x2="1080" y2="300" stroke='#9F9B55' strokeWidth='5' />
+          <line x1="0" y1="360" x2="1080" y2="310" stroke='#9F9B55' strokeWidth='5' />
+        </svg>
         <img id='kronii' src={`${cloudfrontUrl}/Kronii_cropped.png`} alt='kronii' />
         {/* <p>{connectionStatus}</p> */}
         <div id="voiceline-text" className={currentVoiceLine !== "" && 'fade-out'}>
